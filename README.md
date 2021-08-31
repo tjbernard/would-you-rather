@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# WouldYouRather Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This Project, is web app that lets a user play the “Would You Rather?” game. In the app user can asked a question in the form: “Would you rather [option A] or [option B] ?”. User or other users can answer a question by select one option from two optio. User can only answer one question once.
 
-## Available Scripts
+In this app, user can view the questions has answered and has not answered. He/she can see how other users votes, post question and see the vote ranking of users on leadboard.
 
-In the project directory, you can run:
+To use this app, user will need login and there an option to register new user.
 
-### `yarn start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To get started developing right away:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+* install all project dependencies with `npm install`
+* start the development server with `npm start`
 
-### `yarn test`
+## Backend Server
+* The data are store in dababase [`_DATA.js`](scr/utils/_DATA.js)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To request data from database APIs [`api.js`](scr/utils/api.js)
 
-### `yarn build`
+* [`getInitialData`](#getInitialData)
+* [`saveQuestion`](#saveQuestion)
+* [`saveQuestionAnswer`](#saveQuestionAnswer)
+* [`saveUser`](#saveUser)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `getInitialData`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Method Signature:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```js
+getInitialData()
+```
 
-### `yarn eject`
+* Returns a Promise which resolves to a JSON object containing a collection of question objects and user object.
+* This collection represents the questions and users currently in the app.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `saveQuestion`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Method Signature:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```js
+saveQuestion(info)
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* info: `<Object>` containing at minimum an `optionOneText`, `optionTwoText` and `author` attribute
+* Returns a Promise which resolves to a JSON object containing the response data of the POST request
 
-## Learn More
+### `saveQuestionAnswer`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Method Signature:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```js
+saveQuestionAnswer(info)
+```
 
-### Code Splitting
+* info: `<Object>` containing at minimum an `authedUser`, `qid` and `answer` attribute
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### `saveUser`
 
-### Analyzing the Bundle Size
+Method Signature:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```js
+saveUser(info)
+```
 
-### Making a Progressive Web App
+* info: `<Object>` containing at minimum an `id`, `name` and `avatar` attribute
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Important
+The backend API uses a fixed set of cached data. When user refreshes the page, only default data will shown.
 
-### Advanced Configuration
+## Create React App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
