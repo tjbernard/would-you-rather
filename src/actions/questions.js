@@ -1,6 +1,5 @@
 import { showLoading, hideLoading } from 'react-redux-loading'
 import { saveQuestion, saveQuestionAnswer } from '../utils/api'
-import { AddQuestionAnswer } from './users'
 
 export const ADD_QUESTION = 'ADD_QUESTION'
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
@@ -54,11 +53,11 @@ export function handleAddVote(value, question_id) {
             qid: question_id,
             answer: value
         }))
-        dispatch(AddQuestionAnswer({
-            authedUser,
-            qid: question_id,
-            answer: value
-        }))
+        // dispatch(AddQuestionAnswer({
+        //     authedUser,
+        //     qid: question_id,
+        //     answer: value
+        // }))
 
         saveQuestionAnswer({
             authedUser,
@@ -72,12 +71,7 @@ export function handleAddVote(value, question_id) {
                 authedUser,
                 qid: question_id,
                 answer: value
-            }))
-            dispatch(AddQuestionAnswer({
-                authedUser,
-                qid: question_id,
-                answer: value
-            }))             
+            }))         
         });
     }
 }
