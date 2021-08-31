@@ -15,7 +15,7 @@ import PrivateRoute from '../route/PrivateRoute'
 
 class App extends Component {
     componentDidMount() {
-        this.props.dispatch(handleInitialData())
+        this.props.handleInitialData()
     }
     render() {
         return (
@@ -40,4 +40,11 @@ class App extends Component {
     }
 }
 
-export default connect()(App);
+
+function mapStateToProps () {
+    return {
+        // 
+    }
+}
+
+export default connect(mapStateToProps, {handleInitialData})(App);
