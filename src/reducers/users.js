@@ -1,4 +1,4 @@
-import { ADD_ANSWER, RECEIVE_USERS, ADD_USER } from '../actions/users'
+import { RECEIVE_USERS, ADD_USER, ADD_VOTE } from '../actions/users'
 
 export default function users (state = {}, action) {
     switch (action.type) {
@@ -7,7 +7,7 @@ export default function users (state = {}, action) {
                 ...state,
                 ...action.users
             }
-        case ADD_ANSWER:
+        case ADD_VOTE:
             return {
                 ...state,
                 [action.vote.authedUser]: {
