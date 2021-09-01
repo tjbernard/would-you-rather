@@ -1,6 +1,6 @@
 # WouldYouRather Project
 
-This Project, is web app that lets a user play the “Would You Rather?” game. In the app user can asked a question in the form: “Would you rather [option A] or [option B] ?”. User or other users can answer a question by select one option from two optio. User can only answer one question once.
+This Project, is web app that lets a user play the “Would You Rather?” game. In the app user can asked a question in the form: “Would you rather [option A] or [option B] ?”. User or other users can answer a question by select one option from two options. User can only answer a question once.
 
 In this app, user can view the questions has answered and has not answered. He/she can see how other users votes, post question and see the vote ranking of users on leadboard.
 
